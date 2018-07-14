@@ -15,8 +15,8 @@
       <td id="server-players-container"><textarea id="server-players" disabled></textarea></td>
     </tr>
     <tr>
-      <td id="server-command-container"><input type="text" id="server-command" placeholder="Type server commands here..." /></td>
-      <td id="server-button-container"><button id="server-button" onclick="stopServer()">Stop Server</button></td>
+      <td id="server-command-container"><input type="text" id="server-command" placeholder="Type server commands here..." onkeypress="recieveCommand()" /></td>
+      <td id="server-button-container"><button id="server-button" onclick="sendCommand('stop')">Stop Server</button></td>
     </tr>
   </table>
 </body>

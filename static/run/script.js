@@ -1,9 +1,12 @@
 var fs = require("fs");
 var {exec} = require("child_process");
 var proc;
+var playerList = [];
+var stopIntended = false;
 
 function startServer() {
-  var logbox = document.getElementById("server-log");
+  document.getElementById("server-players").value = "[Players]\nNone";
+  var logBox = document.getElementById("server-log");
   fs.readdir(`${__dirname}/../../server`,function(err,files) {
     if ( err ) throw err;
     files = files.filter(item => item.startsWith("spigot-") && item.endsWith(".jar"));
@@ -12,19 +15,54 @@ function startServer() {
       if ( err ) throw err;
     });
     proc.stdout.on("data",function(data) {
-      logbox.value += data;
-      logbox.scrollTop = logbox.scrollHeight;
+      handlePlayers(data.toString());
+      logBox.value += data;
+      logBox.scrollTop = logBox.scrollHeight;
     });
     proc.stderr.pipe(proc.stdout);
+    proc.on("close",function(code) {
+      logBox.value += `Process exited with code ${code}\n`;
+      if ( ! stopIntended ) alert("The server has stopped running.");
+      location.href = __dirname + "/../main/index.html";
+    });
   });
 }
 
 function sendCommand(command) {
-  var logbox = document.getElementById("server-log");
-  logbox.value += "[INPUT]> " + command + "\n";
+  if ( command.startsWith("stop") ) stopIntended = true;
+  var logBox = document.getElementById("server-log");
+  logBox.value += `[INPUT]> ${command}\n`;
   proc.stdin.write(command + "\n");
 }
 
-function stopServer() { sendCommand("stop"); }
+function recieveCommand() {
+  var inputBox = document.getElementById("server-command");
+  if ( event.code == "Enter" ) {
+    sendCommand(inputBox.value);
+    inputBox.value = "";
+  }
+}
+
+function handlePlayers(message) {
+  var rerender = false;
+  message = message.slice(17);
+  if ( message.indexOf(" logged in with entity id ") > -1 ) {
+    message = message.slice(0,message.indexOf("["));
+    playerList.push(message);
+    rerender = true;
+  } else if ( message.endsWith(" left the game\n") ) {
+    message = message.slice(0,message.indexOf(" left the game"));
+    playerList = playerList.filter(item => item != message);
+    rerender = true;
+  }
+  if ( rerender ) {
+    var playerBox = document.getElementById("server-players");
+    playerBox.value = "[Players]\n";
+    if ( playerList <= 0 ) playerBox.value += "None";
+    for ( var i = 0; i < playerList.length; i++ ) {
+      playerBox.value += playerList[i] + "\n"
+    }
+  }
+}
 
 window.onload = startServer;
