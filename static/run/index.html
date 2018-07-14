@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MCEasyServer</title>
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <script src="script.js"></script>
+</head>
+<body>
+  <h1>MCEasyServer</h1>
+  <hr />
+  <table>
+    <tr>
+      <td id="server-log-container"><textarea id="server-log"></textarea></td>
+      <td id="server-players-container"><textarea id="server-players"></textarea></td>
+    </tr>
+    <tr>
+      <td id="server-command-container"><input type="text" id="server-command" placeholder="Type server commands here..." /></td>
+      <td>
+        <button onclick="openLog()" class="server-button">Open Server Log</button>
+        <button onclick="stopServer()" class="server-button">Stop Server</button>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

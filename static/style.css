@@ -6,3 +6,43 @@ body {
 a {
   color: black;
 }
+
+textarea,#server-command {
+  font-family: "Courier";
+  font-size: 100%;
+}
+td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+#server-log-container {
+  width: 78vw;
+  height: 90vh;
+}
+#server-log {
+  width: calc(100% - 30px);
+  height: calc(100% - 20px);
+  padding: 10px;
+}
+#server-players-container {
+  width: 100vw;
+  height: 90vh;
+}
+#server-players {
+  width: calc(100% - 30px);
+  height: calc(100% - 20px);
+  padding: 10px;
+}
+#server-command {
+  width: 78vw;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 7px;
+  padding-right: 0px;
+}
+.server-button {
+  background-color: #ffffff;
+  border-radius: 0px;
+  width: 100%;
+  height: 50%;
+}
