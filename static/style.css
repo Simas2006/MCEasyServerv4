@@ -1,4 +1,8 @@
 body {
   background-color: #ffc928;
   font-family: "Avenir";
+  font-size: 100%;
+}
+a {
+  color: black;
 }
