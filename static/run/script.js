@@ -19,4 +19,12 @@ function startServer() {
   });
 }
 
+function sendCommand(command) {
+  var logbox = document.getElementById("server-log");
+  logbox.value += "[INPUT]> " + command + "\n";
+  proc.stdin.write(command + "\n");
+}
+
+function stopServer() { sendCommand("stop"); }
+
 window.onload = startServer;

@@ -10,6 +10,7 @@ a {
 textarea,#server-command,#server-button {
   font-family: "Courier";
   font-size: 100%;
+  color: black;
 }
 td {
   padding-top: 0px;
