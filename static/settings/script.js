@@ -190,7 +190,9 @@ function renderItems() {
 
 function loadData() {
   for ( var i = 0; i < items.length; i++ ) {
-    items[i].value = properties.readProperty(items[i].realName);
+    var value = properties.readProperty(items[i].realName);
+    if ( items[i].type != "boolean" ) items[i].value = value;
+    else items[i].value = (value == "true" || value === true);
   }
 }
 
