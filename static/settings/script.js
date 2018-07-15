@@ -5,7 +5,7 @@ var items = [
     name: "Main World",
     realName: "level-name",
     type: "text",
-    info: "The world new players will spawn into, unless a multi-world plugin overrides this mechanic. Must be a valid world name. Default = \"world\""
+    info: "The world new players will spawn into, unless a multi-world plugin overrides this mechanic. Must be a valid world name, otherwise the server will generate a new world with this name. Default = \"world\""
   },
   {
     name: "MOTD (Message of the Day)",
