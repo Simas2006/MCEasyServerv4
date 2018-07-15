@@ -1,14 +1,14 @@
 var fs = require("fs");
 var {exec} = require("child_process");
 var ip = require("ip");
+var properties = require("../properties");
 var proc;
 var playerList = [];
 var stopIntended = false;
 
-var port = 25565;
-var ramAlloc = 1;
-
 function startServer() {
+  var port = properties.readProperty("server-port");
+  var ramAlloc = properties.readProperty("ram-alloc");
   document.getElementById("local-text").innerText = `Login locally using the IP address "${ip.address()}${port != 25565 ? ":" + port : ""}"`;
   document.getElementById("server-players").value = "[Players]\nNone";
   var logBox = document.getElementById("server-log");
