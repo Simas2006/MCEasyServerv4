@@ -54,3 +54,18 @@ td {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+
+input {
+  min-width: 30px;
+  min-height: 30px;
+  font-size: 100%;
+}
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  background-color: red;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+input[type="checkbox"]:checked {
+  background-color: green;
+}
