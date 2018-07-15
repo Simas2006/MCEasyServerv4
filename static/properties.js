@@ -11,7 +11,7 @@ function readProperty(key) {
   return selected[0][1];
 }
 
-function setProperty(key,value) {
+function setProperty(key,value,skipDataUpdate) {
   if ( ! propData ) {
     propDataRaw = fs.readFileSync(__dirname + "/../server/server.properties").toString().split("\n");
     propData = propDataRaw.filter(item => ! item.startsWith("#")).map(item => item.split("="));
@@ -19,9 +19,8 @@ function setProperty(key,value) {
   var index = propDataRaw.map((item,index) => item.startsWith(key) ? index : -1).filter(item => item > -1);
   if ( index.length <= 0 ) throw new Error("Invalid key into server.properties");
   propDataRaw[index[0]] = `${key}=${value}`;
-  console.log(propDataRaw,index[0]);
   fs.writeFileSync(__dirname + "/../server/server.properties",propDataRaw.join("\n"));
-  propData = null;
+  if ( ! skipDataUpdate ) propData = null;
 }
 
 module.exports = {readProperty,setProperty};

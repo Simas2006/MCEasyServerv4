@@ -1,4 +1,5 @@
 var fs = require("fs");
+var properties = require("../properties");
 var items = [
   {
     name: "Main World",
@@ -77,12 +78,6 @@ var items = [
     realName: "max-build-height",
     type: "number",
     info: "The maximum build height on the server. Default = 256"
-  },
-  {
-    name: "Spawn Protection Radius",
-    realName: "spawn-protection",
-    type: "number",
-    info: "The radius of a square of blocks around the world spawn to be protected, such that only operators may build in such area. Default = 16"
   },
   {
     name: "Force Gamemode",
@@ -165,6 +160,7 @@ var items = [
 ];
 
 function renderItems() {
+  loadData();
   var div = document.getElementById("options");
   for ( var i = 0; i < items.length; i++ ) {
     var b = document.createElement("b");
@@ -192,12 +188,17 @@ function renderItems() {
   }
 }
 
-function saveData() {
-  var string = "";
+function loadData() {
   for ( var i = 0; i < items.length; i++ ) {
-    string += `${items[i].realName}=${items[i].value}\n`;
+    items[i].value = properties.readProperty(items[i].realName);
   }
-  console.log(string);
+}
+
+function saveData() {
+  for ( var i = 0; i < items.length; i++ ) {
+    properties.setProperty(items[i].realName,items[i].value,true);
+  }
+  location.href = __dirname + "/../main/index.html";
 }
 
 window.onload = renderItems;
