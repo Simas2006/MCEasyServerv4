@@ -7,7 +7,7 @@ a {
   color: black;
 }
 
-textarea,#server-command,#server-button {
+textarea,#server-command,#server-button,.settings-buttons {
   font-family: "Courier";
   font-size: 100%;
   color: black;
@@ -68,4 +68,14 @@ input[type="checkbox"] {
 }
 input[type="checkbox"]:checked {
   background-color: green;
+}
+.settings-buttons {
+  background-color: #21de50;
+  border-radius: 0px;
+  padding: 10px;
+}
+
+#update-log {
+  width: 100vw;
+  height: 90vh;
 }
