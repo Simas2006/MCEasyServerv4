@@ -17,7 +17,7 @@ var items = [
     name: "Server Port",
     realName: "server-port",
     type: "number",
-    info: "The network port on your computer used to run the server. Default = 25565"
+    info: "The network port on your computer used to run the server. If no port is specified, the client will assume the default server port. Default = 25565"
   },
   {
     name: "Enable Whitelist",
