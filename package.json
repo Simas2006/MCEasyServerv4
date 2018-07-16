@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "electron": "^2.0.5",
-    "ip": "^1.1.5"
+    "ip": "^1.1.5",
+    "rimraf": "^2.6.2"
   }
 }
