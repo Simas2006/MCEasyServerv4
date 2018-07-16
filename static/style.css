@@ -79,3 +79,10 @@ input[type="checkbox"]:checked {
   width: 100vw;
   height: 90vh;
 }
+
+.world-remove-button {
+  display: inline;
+  background-color: #f03131;
+  border-radius: 0px;
+  padding: 10px;
+}
