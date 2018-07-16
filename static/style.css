@@ -69,7 +69,7 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
   background-color: green;
 }
-.settings-buttons,#world-add-button {
+.settings-buttons,#world-add-button,#plugin-add-button {
   background-color: #21de50;
   border-radius: 0px;
   padding: 10px;
@@ -80,7 +80,7 @@ input[type="checkbox"]:checked {
   height: 90vh;
 }
 
-.world-remove-button {
+.world-remove-button,.plugin-remove-button {
   display: inline;
   background-color: #f03131;
   border-radius: 0px;
