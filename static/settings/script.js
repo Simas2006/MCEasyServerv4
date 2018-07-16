@@ -20,6 +20,12 @@ var items = [
     info: "The network port on your computer used to run the server. If no port is specified, the client will assume the default server port. Default = 25565"
   },
   {
+    name: "RAM To Allocate",
+    realName: "ram-alloc",
+    type: "number",
+    info: "The amount (in gigabytes) of RAM (memory) to be allocated towards running the server. Default = 1 (GB)"
+  },
+  {
     name: "Enable Whitelist",
     realName: "white-list",
     type: "boolean",
