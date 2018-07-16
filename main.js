@@ -13,7 +13,7 @@ function createWindow() {
     }
   });
   window.setMenu(null);
-  window.loadURL("file://" + __dirname + "/static/main/index.html");
+  window.loadURL(`file://${__dirname}/static/${fs.existsSync(__dirname + "/server/BuildTools.jar") ? "main" : "eula"}/index.html`);
   window.webContents.openDevTools();
   window.on("closed",function() {
     window = null;
