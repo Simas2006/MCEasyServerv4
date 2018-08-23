@@ -9,7 +9,7 @@
   "author": "Simas Juknelis",
   "license": "MIT",
   "dependencies": {
-    "electron": "^2.0.5",
+    "electron": "^2.0.8",
     "ip": "^1.1.5",
     "ncp": "^2.0.0",
     "rimraf": "^2.6.2"
